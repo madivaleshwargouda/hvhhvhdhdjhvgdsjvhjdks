@@ -1,0 +1,137 @@
+sonarQube
+
+1) what is code quality
+it is bug free 
+it is secure
+duplications avoided
+tested properely
+complex code
+easy to intergrate with other code
+
+2) static code analysis tools
+sonarqube, coverity, raxis, veracode, code scene
+
+3)Why sonarqube?
+Its is as "Quality management tool"
+code analysis it is also gather the report of various testing which you are doing, 
+test reports code ,coverage report and few thing it is going to collect and display in 
+the gui in very nice understandable format.
+
+*****  
+####
+Qyality gate is passed how many (bugs, you have, vulnerabilities code,code smells, coverage, duplication)
+
+4) components of sonarqube
+sonarqube server
+-> rule, database, web interface
+
+sonarscanner 
+-> sourcecode
+
+
+installation linux
+java -version
+yum list | grep openjdk
+amazon-linux-extras  // check amazon version
+amazon-linux-extras install openjdk11
+cd /opt
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.9.1.69595.zip?_gl=1*e0kw*_gcl_au*MjAwMjg5MTM4Ny4xNjkwMTk3Mjk4*_ga*MTkzODM5MzUwMy4xNjkwMTk3Mjk4*_ga_9JZ0GZ5TC6*MTY5MDE5NzI5Ny4xLjEuMTY5MDE5Nzk3Ny4xNi4wLjA.
+
+unzip sonarqub-80222
+
+cd sonarqube--8.9.2.416100
+sonarqube-8.9.2.416100# ll   , cd conf
+cat(more) sonar.properties
+cd bin
+cd linux_x86-64
+
+cd sonarqube--8.9.2.416100# cd logs
+
+useradd sonaradmin
+
+chown -R sonaradmin:sonaradmin /opt/sonarqube-8.9.2.416100
+
+su - sonaradmin
+cd /opt/sonarqube_8.9.2.46101/
+cd bin/linux-x86-64/
+./sonar.sh start 
+
+./sonar.sh status 
+
+netstat -tulpn
+9000
+https://youtu.be/E5hMOGeBT-o
+
+
+
+
+###  How to integrate SonarQube with Jenkins
+
+1) Install sonarqube plugin
+2) configure sonarqube credential
+3) install sonarscanner
+4) run pipline job
+
+
+1) Sonarqube create token
+	create a project(manually way)
+	-project key and token( token key copy)
+
+2) Jenkins server
+	-1) Install sonarqube plugin
+	  -Manage jenkins (Manage Plugin)
+	  -Available(search [sonarqube scanner] should install without restart)
+	-2) configure sonarqube credential
+	  -Manage jenkins(manage credentials)
+	  -credentials that is under jenkins(Global credential and ADD credetial)
+		-select (secret text), secret(sonarqube token key),ID(name[sonarqube-token]), description(name[sonarqube-token])
+
+	-3) Manage jenkins(configerb system)
+	   -Enable this sonarqube server 
+		-add sonar(name [vesion name], server URL[ url of our sonar qube server ip address public ip ]
+		note: Be carefull while using public ip becouse it will be keep on changing whenever you reboot your sysrem
+			thats the resons in real world we will be usinfg only private ip addresses
+		-authentication (sonar qube token) ---apply and save.
+	-4) Global tool configuration tool
+		-sonarqube scanner (install automatically) 
+*Create project in jenkins pipline
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
